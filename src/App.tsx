@@ -123,7 +123,7 @@ export function App() {
       <p style={{ margin: 10 }}>
         ＊ このサイトのソースコードは
         <a
-          href="https://github.com/random776/react_countdown"
+          href="https://github.com/random776/react_countdown/tree/master"
           className="btn4"
         >
           こちら
