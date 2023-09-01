@@ -121,6 +121,16 @@ export function App() {
         ＊ 本サイトは、Javascriptフレームワークの一つであるReactを用いて作成しています。
       </p>
       <p style={{ margin: 10 }}>
+        ＊ このサイトのソースコードは
+        <a
+          href="https://github.com/random776/react_countdown"
+          className="btn4"
+        >
+          こちら
+        </a>
+        から。
+      </p>
+      <p style={{ margin: 10 }}>
         ＊ このサイトの制作者「かっちゃん」へのお問い合わせは
         <a
           href="https://random776.github.io/kacchan_home/contact"
