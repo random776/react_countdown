@@ -34,8 +34,7 @@ export function App() {
       setRemainTime(target.getTime() - currentTime.getTime());
       setRemainNatsuyasumi(targetNatsuyasumi.getTime() - currentTime.getTime());
       // スタイルの更新
-      setBarWidth(((allNatsuyasumi - remainNatsuyasumi) / allNatsuyasumi) * 99);
-      console.log(barWidth);
+      setBarWidth(((allNatsuyasumi - (targetNatsuyasumi.getTime() - currentTime.getTime())) / allNatsuyasumi) * 99);
     }, 1000);
 
     return () => {
