@@ -139,7 +139,7 @@ export function App() {
       )}
       <p style={{ margin: 10 }}>
         ＊
-        本サイトは、Javascriptフレームワークの一つであるReactを用いて作成しています。
+        本サイトは、JavaScriptフレームワークの一つであるReactを用いて作成しています。
       </p>
       <p style={{ margin: 10 }}>
         ＊ このサイトのソースコードは
