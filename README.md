@@ -1,5 +1,5 @@
 # react_countdown
-the countdown created using react.
+the countdown created with react.
 
 ## How to use
 
