@@ -13,7 +13,7 @@ export function App() {
   const [remainTime, setRemainTime] = useState(
     target.getTime() - now.getTime()
   );
-  //夏休みの残り日数
+  //春休みの残り日数
   const targetNatsuyasumi = new Date("2024/4/01 0:00:00");
   const beginNatsuyasumi = new Date("2024/2/01 0:00:00");
   const allNatsuyasumi =
@@ -73,7 +73,7 @@ export function App() {
   const difMin1 = Math.floor(remainTime / 1000 / 60) % 60;
   const difSec1 = Math.floor(remainTime / 1000) % 60;
 
-  //夏休みの残り日数 func === 2
+  //春休みの残り日数 func === 2
   const difDay2 = Math.floor(remainNatsuyasumi / 1000 / 60 / 60 / 24);
   const difHour2 = Math.floor(remainNatsuyasumi / 1000 / 60 / 60) % 24;
   const difMin2 = Math.floor(remainNatsuyasumi / 1000 / 60) % 60;
@@ -88,7 +88,7 @@ export function App() {
           <Select
             labelId="label"
             id="demo-simple-select"
-            label="夏休みが終わるまで"
+            label="春休みが終わるまで"
             onChange={selectChange}
           >
             <MenuItem value={1}>東大150周年まで</MenuItem>
@@ -126,7 +126,7 @@ export function App() {
             <span className="card__utokyo__day">{difSec2}</span>秒
           </div>
           <div style={{ margin: 10 }}>
-            夏休みが
+            春休みが
             <span className="card__utokyo__day">
               {Math.floor((barWidth / 99) * 10000) / 100}
             </span>
