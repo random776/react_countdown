@@ -14,8 +14,8 @@ export function App() {
     target.getTime() - now.getTime()
   );
   //夏休みの残り日数
-  const targetNatsuyasumi = new Date("2023/10/01 0:00:00");
-  const beginNatsuyasumi = new Date("2023/8/01 0:00:00");
+  const targetNatsuyasumi = new Date("2024/4/01 0:00:00");
+  const beginNatsuyasumi = new Date("2024/2/01 0:00:00");
   const allNatsuyasumi =
     targetNatsuyasumi.getTime() - beginNatsuyasumi.getTime();
   const [remainNatsuyasumi, setRemainNatsuyasumi] = useState(
@@ -31,10 +31,26 @@ export function App() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       const currentTime = new Date();
-      setRemainTime(target.getTime() - currentTime.getTime());
-      setRemainNatsuyasumi(targetNatsuyasumi.getTime() - currentTime.getTime());
-      // スタイルの更新
-      setBarWidth(((allNatsuyasumi - (targetNatsuyasumi.getTime() - currentTime.getTime())) / allNatsuyasumi) * 99);
+      if (target.getTime() - currentTime.getTime() >= 0) {
+        setRemainTime(target.getTime() - currentTime.getTime());
+      } else {
+        setRemainTime(0);
+      }
+      if (targetNatsuyasumi.getTime() - currentTime.getTime() >= 0) {
+        setRemainNatsuyasumi(
+          targetNatsuyasumi.getTime() - currentTime.getTime()
+        );
+        // スタイルの更新
+      setBarWidth(
+        ((allNatsuyasumi -
+          (targetNatsuyasumi.getTime() - currentTime.getTime())) /
+          allNatsuyasumi) *
+          99
+      );
+      } else {
+        setRemainNatsuyasumi(0);
+        setBarWidth(99);
+      }
     }, 1000);
 
     return () => {
@@ -43,7 +59,12 @@ export function App() {
   }, []);
 
   if (remainTime < 0) {
-    return null; // カウントダウン終了時のレンダリング
+    console.log("remain time is 0");
+    setRemainTime(0); // カウントダウン終了時のレンダリング
+  }
+  if (remainNatsuyasumi < 0) {
+    console.log("remain time is 0");
+    setRemainNatsuyasumi(0);
   }
 
   //東大150周年 func === 1
@@ -71,7 +92,7 @@ export function App() {
             onChange={selectChange}
           >
             <MenuItem value={1}>東大150周年まで</MenuItem>
-            <MenuItem value={2}>夏休みが終わるまで</MenuItem>
+            <MenuItem value={2}>春休みが終わるまで</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -112,12 +133,13 @@ export function App() {
             % 終わりました。
           </div>
           <p style={{ margin: 10 }}>
-            ＊ 夏休みの始まり：2023年8月1日、終わり：10月1日としています。
+            ＊ 夏休みの始まり：2024年2月1日、終わり：4月1日としています。
           </p>
         </>
       )}
       <p style={{ margin: 10 }}>
-        ＊ 本サイトは、Javascriptフレームワークの一つであるReactを用いて作成しています。
+        ＊
+        本サイトは、Javascriptフレームワークの一つであるReactを用いて作成しています。
       </p>
       <p style={{ margin: 10 }}>
         ＊ このサイトのソースコードは
@@ -139,6 +161,9 @@ export function App() {
         </a>
         から。
       </p>
+      <h4>更新履歴</h4>
+      <p>2024/2/10 残りゼロ日になっても時間を刻み続けてしまうバグを修正しました。</p>
+      <p>2024/2/10 「春休みが終わるまで」のカウントダウンを開始しました。</p>
     </>
   );
 }
