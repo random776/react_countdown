@@ -113,7 +113,7 @@ export function App() {
       )}
       {func === 2 && (
         <>
-          <h3>夏休みが終わるまで</h3>
+          <h3>春休みが終わるまで</h3>
           <div id="margin">
             {/* スタイルをステートで制御 */}
             <div id="bar" style={{ width: `${barWidth}%` }}></div>
@@ -133,7 +133,7 @@ export function App() {
             % 終わりました。
           </div>
           <p style={{ margin: 10 }}>
-            ＊ 夏休みの始まり：2024年2月1日、終わり：4月1日としています。
+            ＊ 春休みの始まり：2024年2月1日、終わり：4月1日としています。
           </p>
         </>
       )}
